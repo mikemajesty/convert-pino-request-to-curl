@@ -30,8 +30,7 @@ export class PinoRequestConverter {
     const curl = `curl --location -g --request ${request.method.toUpperCase()} '${request.raw.protocol || 'http' + '://' + request?.headers.host + request.url + paramsUrl + query
       }' ${header} ${Object.keys(rawBody).length ? body : ''}`;
 
-    // return curl.trim();
-    return body;
+    return curl.trim();
   }
 
 }
