@@ -25,9 +25,10 @@ export class PinoRequestConverter {
     const body = `--data-raw '${JSON.stringify(rawBody)}'`;
 
     const paramsUrl = `${request?.params ? params : ''}`;
-    
 
-    const curl = `curl --location -g --request ${request.method.toUpperCase()} '${request.raw.protocol || 'http' + '://' + request?.headers.host + request.url + paramsUrl + query
+    const protocol = request.raw.protocol;
+
+    const curl = `curl --location -g --request ${request.method.toUpperCase()} '${protocol + '://' + request.headers.host + request.url + paramsUrl + query
       }' ${header} ${Object.keys(rawBody).length ? body : ''}`;
 
     return curl.trim();
