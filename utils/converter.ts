@@ -28,6 +28,8 @@ export class PinoRequestConverter {
 
     const protocol = request.raw.protocol;
 
+    delete request.headers['content-length']
+
     const curl = `curl --location -g --request ${request.method.toUpperCase()} '${protocol + '://' + request.headers.host + request.url + paramsUrl + query
       }' ${header} ${Object.keys(rawBody).length ? body : ''}`;
 
