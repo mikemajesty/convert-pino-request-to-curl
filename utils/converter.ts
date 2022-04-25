@@ -5,6 +5,8 @@ export class PinoRequestConverter {
   static getCurl(request: RequestType): string {
     let header = '';
 
+    delete request.headers['content-length']
+
     Object.keys(request?.headers || {}).forEach(
       (r) => (header += `--header '${r}: ${request.headers[String(r)]}' `),
     );
@@ -27,8 +29,6 @@ export class PinoRequestConverter {
     const paramsUrl = `${request?.params ? params : ''}`;
 
     const protocol = request.raw.protocol;
-
-    delete request.headers['content-length']
 
     const curl = `curl --location -g --request ${request.method.toUpperCase()} '${protocol + '://' + request.headers.host + request.url + paramsUrl + query
       }' ${header} ${Object.keys(rawBody).length ? body : ''}`;
