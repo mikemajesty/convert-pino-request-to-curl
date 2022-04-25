@@ -17,9 +17,12 @@ pinoHttp(
   ...
 serializers: {
     err: pino.stdSerializers.err,
-    req: (request) => {
-      return PinoRequestConverter.getCurl(request);
-    },
+    req: (req) => {
+      return {
+        method: req.method,
+        curl: PinoRequestConverter.getCurl(req),
+      };
+     },
     res: pino.stdSerializers.res,
 }
 ...
