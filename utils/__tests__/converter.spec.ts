@@ -14,7 +14,7 @@ describe('PinoRequestConverter', () => {
 
     describe('POST', () => {
       test('should default post successfully', async () => {
-        const curl =  `curl --location -g --request POST 'http://[::1]:4000/api/login' --header 'accept: application/json, text/plain, */*' --header 'content-type: application/json' --header 'user-agent: axios/0.26.1' --header 'content-length: 32' --header 'host: [::1]:4000' --header 'connection: close'  --data-raw '{\"login\":\"admin\",\"pass\":\"admin\"}'`
+        const curl =  `curl --location -g --request POST 'http://[::1]:4000/api/login' --header 'accept: application/json, text/plain, */*' --header 'content-type: application/json' --header 'user-agent: axios/0.26.1' --header 'host: [::1]:4000' --header 'connection: close'  --data-raw '{\"login\":\"admin\",\"pass\":\"admin\"}'`
         const libCurl = PinoRequestConverter.getCurl(postDefaultRequest);
         expect(curl).toEqual(libCurl)
       });
