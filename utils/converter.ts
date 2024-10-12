@@ -2,7 +2,7 @@ import { RequestType } from "./entity";
 
 export class PinoRequestConverter {
 
-  static getCurl(request: RequestType): string {
+  static getCurl(request: RequestType, anonymizedFields: string[] = []): string {
     let header = '';
 
     delete request.headers['content-length']
@@ -24,11 +24,31 @@ export class PinoRequestConverter {
 
     const rawBody = request?.raw?.body
 
-    const body = `--data-raw '${rawBody ? JSON.stringify(rawBody) : undefined}'`;
+    const body = `--data-raw '${PinoRequestConverter.getBody(anonymizedFields, rawBody ? JSON.stringify(rawBody) : undefined)}'`
+
     const paramsUrl = `${(request === null || request === void 0 ? void 0 : request.params) ? params : ''}`;
     const protocol = request.raw.protocol;
     const curl = `curl --location -g --request ${request.method.toUpperCase()} '${protocol + '://' + request.headers.host + request.url + paramsUrl + query}' ${header} ${Object.keys(rawBody)?.length ? body : ''}`;
     return curl.trim();
+  }
+
+  static getBody = (anonymizedFields: string[], body: string | undefined) => {
+    if (!anonymizedFields.length) {
+      return body
+    }
+
+    for (const field of anonymizedFields) {
+      const regexField = `("${field}":)"(.*?)"`;
+      const regex = new RegExp(`${regexField}`);
+
+      const exec = regex.exec(body as string);
+
+      if (exec?.length === 3) {
+        body = (body as string).replace(exec[2], "******");
+      }
+    }
+
+    return body
   }
 
 }

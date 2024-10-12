@@ -13,7 +13,7 @@ const postDefaultRequest: RequestType = {
     "_body": true,
     "body": {
       "login": "admin",
-      "pass": "admin"
+      "password": "senha"
     },
     "protocol": 'http',
   }, "headers": { "accept": "application/json, text/plain, */*", "content-type": "application/json", "user-agent": "axios/0.26.1", "content-length": "32", "host": "[::1]:4000", "connection": "close" }, "remoteAddress": "::1", "remotePort": 36810
