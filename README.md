@@ -20,7 +20,7 @@ serializers: {
     req: (req) => {
       return {
         method: req.method,
-        curl: PinoRequestConverter.getCurl(req),
+        curl: PinoRequestConverter.getCurl(req, ["password"]),
       };
      },
     res: pino.stdSerializers.res,
