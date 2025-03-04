@@ -2,8 +2,8 @@
   "name": "convert-pino-request-to-curl",
   "version": "1.0.2",
   "description": "Pino converter request to curl",
-  "main": "dist/converter.js",
-  "types": "dist/converter.d.ts",
+  "main": "dist/src/onverter.js",
+  "types": "dist/src/converter.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest --config=\"./jest.config.ts\""
