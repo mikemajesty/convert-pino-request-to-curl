@@ -1,8 +1,8 @@
-import { RequestType } from "./entity";
+import { Types } from "./entity";
 
 export class PinoRequestConverter {
 
-  static getCurl(request: RequestType, anonymizedFields: string[] = []): string {
+  static getCurl(request: Types.RequestType, anonymizedFields: string[] = []): string {
     let header = '';
 
     delete request.headers['content-length']

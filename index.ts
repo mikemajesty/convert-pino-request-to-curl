@@ -1,2 +1,2 @@
 
-export * from './utils/converter';
+export * from './src/converter';

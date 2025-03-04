@@ -1,4 +1,4 @@
-import { PinoRequestConverter } from '../converter';
+import { PinoRequestConverter } from '../../src/converter';
 import { getDefaultRequest, postDefaultRequest } from './__mocks__/converter';
 
 describe('PinoRequestConverter', () => {

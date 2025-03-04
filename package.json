@@ -1,11 +1,12 @@
 {
   "name": "convert-pino-request-to-curl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pino converter request to curl",
-  "main": "dist/index.js",
+  "main": "dist/converter.js",
+  "types": "dist/converter.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "jest --config=\"./jest/jest.config.ts\""
+    "test": "jest --config=\"./jest.config.ts\""
   },
   "author": "Mike Lima <mike.rodrigues.lima@gmail.com>",
   "homepage": "https://github.com/mikemajesty/convert-pino-request-to-curl#readme",
