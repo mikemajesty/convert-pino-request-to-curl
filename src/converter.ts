@@ -32,7 +32,7 @@ export class PinoRequestConverter {
     return curl.trim();
   }
 
-  static getBody = (anonymizedFields: string[], body: string | undefined) => {
+  private static getBody = (anonymizedFields: string[], body: string | undefined) => {
     if (!anonymizedFields.length) {
       return body
     }
