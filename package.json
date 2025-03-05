@@ -1,8 +1,8 @@
 {
   "name": "convert-pino-request-to-curl",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Pino converter request to curl",
-  "main": "dist/src/onverter.js",
+  "main": "dist/src/converter.js",
   "types": "dist/src/converter.d.ts",
   "scripts": {
     "build": "tsc",
